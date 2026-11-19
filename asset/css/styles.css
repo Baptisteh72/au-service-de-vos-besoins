@@ -1,0 +1,909 @@
+/* ==========================================================================
+   SOMMAIRE DU FICHIER CSS - AU SERVICE DE VOS BESOINS
+   ==========================================================================
+   1. VARIABLES & PALETTE DE COULEURS
+   2. RESET & STYLES GÉNÉRAUX
+   3. EN-TÊTE (HEADER), LOGO & MENU DE NAVIGATION
+   4. SECTION HÉRO & CARROUSEL
+   5. SECTION NOS SERVICES (GRILLE & CARTES)
+   6. SECTION À PROPOS, LOUPE & LIGHTBOX
+   7. SECTION CONTACT, FORMULAIRE & DECOR MAÏS
+   8. FOOTER & PAGE MENTIONS LÉGALES
+   9. RESPONSIVE DESIGN (TABLETTE & MOBILE)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES & PALETTE DE COULEURS
+   ========================================================================== */
+:root {
+    --primary-color: #2c5226;      /* Vert forêt */
+    --secondary-color: #4f793e;    /* Vert herbe */
+    --soft-green-bg: #e3ebde;      /* Fond vert doux */
+    --accent-color: #d99b38;       /* Ton blé doré */
+    --dark-color: #232822;         /* Anthracite naturel */
+    --light-color: #f4efe4;        /* Fond ton paille claire / lin */
+    --card-bg: #fcfaf5;            /* Crème très doux pour les cartes */
+    --gray-color: #535c51;         /* Gris-vert texte secondaire */
+}
+
+
+/* ==========================================================================
+   2. RESET & STYLES GÉNÉRAUX
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-color);
+    background: linear-gradient(180deg, #f3ede0 0%, #eae3d2 100%);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* Titres et sous-titres communs des sections */
+h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray-color);
+    max-width: 650px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.05rem;
+}
+
+/* Boutons réutilisables */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.85rem 1.8rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.8rem 1.6rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+
+/* ==========================================================================
+   3. EN-TÊTE (HEADER), LOGO & MENU DE NAVIGATION
+   ========================================================================== */
+header {
+    background: rgba(252, 250, 245, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(44, 82, 38, 0.1);
+    border-bottom: 2px solid #e2d9c5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+}
+
+/* Logo & Animation Tracteur */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--accent-color);
+    flex-shrink: 0;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-title {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-color);
+}
+
+.tracteur-anime {
+    display: inline-block;
+    animation: moteur 0.4s infinite alternate;
+}
+
+@keyframes moteur {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-3px); }
+}
+
+/* Actions à droite du Header (Statut + Téléphone) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.header-dispo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--soft-green-bg);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid #cddac5;
+    white-space: nowrap;
+}
+
+.btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgba(217, 155, 56, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-call:hover {
+    background-color: #c78b2b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.phone-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.btn-call:hover .phone-icon {
+    color: #ffffff;
+}
+
+/* Menu Déroulant intégré en haut à droite */
+header .floating-nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1500;
+}
+
+.floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: 2px solid var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(44, 82, 38, 0.25);
+    transition: all 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.floating-btn.active {
+    background-color: var(--dark-color);
+    border-color: #ffffff;
+}
+
+header .floating-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 240px;
+    background-color: var(--card-bg);
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid #e2d9c5;
+    box-shadow: 0 10px 25px rgba(44, 82, 38, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+header .floating-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.floating-link {
+    background-color: #ffffff;
+    color: var(--dark-color);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid #e2d9c5;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    text-align: right;
+}
+
+.floating-link:hover {
+    background-color: var(--soft-green-bg);
+    color: var(--primary-color);
+    transform: translateX(-4px);
+}
+
+.floating-link.link-contact {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    border: none;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   4. SECTION HÉRO & CARROUSEL
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(120deg, #e2ecdc 0%, #f5ebd6 100%);
+    padding: 3.5rem 0;
+    border-bottom: 2px solid #dfd5c0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.badge-secteur {
+    display: inline-block;
+    background-color: #f3dfb9;
+    color: #5c4014;
+    border: 1px solid #e0c38c;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-text h1 {
+    font-size: 2.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--gray-color);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Cadre du Carrousel */
+.header-slider {
+    flex: 1;
+    max-width: 540px;
+    width: 100%;
+    height: 360px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(44, 82, 38, 0.18);
+    border: 4px solid #ffffff;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slider-track img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ==========================================================================
+   5. SECTION NOS SERVICES (GRILLE & CARTES)
+   ========================================================================== */
+.products {
+    padding: 5rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(44, 82, 38, 0.08);
+    border: 1px solid #e5dec9;
+    border-bottom: 4px solid var(--accent-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(44, 82, 38, 0.14);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover; 
+}
+.card-body {
+    padding: 1.5rem;
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--gray-color);
+    font-size: 0.98rem;
+}
+
+
+/* ==========================================================================
+   6. SECTION À PROPOS, LOUPE & LIGHTBOX
+   ========================================================================== */
+.about {
+    background: linear-gradient(135deg, #dce6d5 0%, #e7eedf 100%);
+    padding: 5rem 0;
+    border-top: 1px solid #cddac5;
+    border-bottom: 1px solid #cddac5;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.about-list {
+    list-style: none;
+}
+
+.about-list li {
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.about-img {
+    position: relative;
+}
+
+.about-main-photo {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border: 4px solid #ffffff;
+    display: block;
+}
+
+.logo-coin {
+    position: absolute;
+    bottom: -18px;
+    right: -18px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Loupe interactive au survol */
+.zoom-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: zoom-in;
+}
+
+.loupe-lens {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 0 12px rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    display: none;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.zoom-hint {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(35, 40, 34, 0.8);
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.zoom-container:hover .zoom-hint {
+    opacity: 0;
+}
+
+/* Fenêtre Plein Écran (Lightbox au clic) */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 25, 20, 0.92);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lightbox-modal.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: var(--accent-color);
+}
+
+
+/* ==========================================================================
+   7. SECTION CONTACT, FORMULAIRE & DÉCOR MAÏS
+   ========================================================================== */
+.contact-section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, #f3ede0 0%, #e7decb 100%);
+}
+
+.contact-form {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(44, 82, 38, 0.1);
+    border: 1px solid #e2d9c5;
+    border-top: 5px solid var(--accent-color);
+}
+
+/* Brin de maïs animé en haut à droite du formulaire */
+.corn-decor {
+    position: absolute;
+    top: -58px;
+    right: 20px;
+    pointer-events: none;
+    transform-origin: bottom center;
+    animation: ventDoux 4s ease-in-out infinite alternate;
+    z-index: 5;
+}
+
+@keyframes ventDoux {
+    0% { transform: rotate(-4deg); }
+    100% { transform: rotate(5deg); }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.3rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--dark-color);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid #d5ccb8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 82, 38, 0.15);
+}
+
+/* Case à cocher RGPD */
+.form-group-rgpd {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.form-group-rgpd input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.form-group-rgpd a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+}
+
+
+/* ==========================================================================
+   8. FOOTER & PAGE MENTIONS LÉGALES
+   ========================================================================== */
+footer {
+    background-color: var(--primary-color);
+    color: #f4efe4;
+    padding: 2.5rem 0;
+    text-align: center;
+    border-top: 4px solid var(--accent-color);
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-brand {
+    font-size: 1.25rem !important;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.8rem !important;
+}
+
+.footer-legal-link {
+    color: var(--accent-color);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.footer-legal-link:hover {
+    color: #ffffff;
+}
+
+.footer-copy {
+    font-size: 0.85rem !important;
+    color: #cddac5;
+    margin-top: 1rem;
+}
+
+/* Page dédiée aux Mentions Légales */
+.legal-section {
+    padding: 4rem 0;
+}
+
+.legal-section h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.legal-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 6px 18px rgba(44, 82, 38, 0.08);
+    border: 1px solid #e2d9c5;
+    border-left: 5px solid var(--accent-color);
+}
+
+.legal-card h2 {
+    text-align: left;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.legal-card p {
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.legal-card ul {
+    margin-left: 1.5rem;
+    color: var(--dark-color);
+}
+
+.legal-card li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-back {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (TABLETTE & MOBILE)
+   ========================================================================== */
+
+/* --- Gestion du Header Desktop vs Mobile (Point de rupture : 900px) --- */
+.desktop-only {
+    display: none;
+}
+
+.mobile-only {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-only .header-dispo,
+.mobile-only .btn-call {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    .desktop-only {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+}
+/* --- Adaptations Écrans Mobiles (< 768px) --- */
+@media (max-width: 768px) {
+
+    /* Header : taille du texte du logo adaptée */
+    .logo {
+        gap: 0.5rem;
+    }
+
+    .logo-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-title {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .logo-subtitle {
+        font-size: 11px;
+    }
+
+    /* Section Héro : passage en colonne et agrandissement de la slide */
+    .hero-section {
+        padding: 2.2rem 0;
+    }
+
+    .hero-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.95rem;
+    }
+
+    .header-slider {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        height: 300px;
+    }
+
+    /* Section À Propos : passage en 1 colonne */
+    .about {
+        padding: 3.5rem 0;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .logo-coin {
+        width: 90px;
+        height: 90px;
+        bottom: -12px;
+        right: -10px;
+    }
+
+    /* Désactiver la loupe au survol sur mobile (le clic lightbox prend le relais) */
+    .loupe-lens {
+        display: none !important;
+    }
+
+    /* Formulaire : passage en 1 colonne (corrige le débordement du téléphone) */
+    .contact-form {
+        padding: 1.8rem 1.3rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .corn-decor {
+        top: -48px;
+        right: 12px;
+        transform: scale(0.8);
+    }
+}
